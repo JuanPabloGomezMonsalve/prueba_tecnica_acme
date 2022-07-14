@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    maven{
+        url 'https://repo.maven.apache.org/maven2'
+    }
+}
+
+dependencies{
+    testImplementation 'com.intuit.karate:karate-junit5:1.2.0.RC5'
+    testImplementation 'net.masterthought:cucumber-reporting:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty "karate.env", System.properties.getProperty("karate.env")
+    systemProperty "baseUrl", System.properties.getProperty("baseUrl")
+    systemProperty "user", System.properties.getProperty("user")
+
+    outputs.upToDateWhen { false }
+}
+
+sourceSets{
+    test{
+        resources{
+            srcDir file('src/test/java')
+            exclude '**/*.java'
+        }
+    }
+}
