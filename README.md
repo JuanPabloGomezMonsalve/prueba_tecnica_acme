@@ -7,3 +7,5 @@
 ```gradle
 gradlew clean test -i
 ```
+
+video explicando https://youtu.be/n57LxZAsRhY?si=sG8NMF4Yc7esLaDm
